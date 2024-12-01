@@ -10,7 +10,7 @@ const {
     deleteComment,
     likeBlog 
 } = require('../controllers/blogController');
-const { protect } = require('../middlewares/authMiddleware');
+const { protect } = require('../middleware/authMiddleware');
 const { validateBlogPost, validateComment } = require('../validators/blogValidator');
 
 router.route('/')

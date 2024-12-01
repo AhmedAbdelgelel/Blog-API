@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const connectDB = require('./db/connectDB');
 const authRoutes = require('./routes/authRoutes');
 const blogRoutes = require('./routes/blogRoutes');
-const { errorHandler, notFound } = require('./middlewares/errorHandler');
+const { errorHandler, notFound } = require('./middleware/errorHandler');
 
 dotenv.config();
 
