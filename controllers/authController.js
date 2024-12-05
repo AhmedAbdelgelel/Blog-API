@@ -111,4 +111,20 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { signUp, login };
+const logout = async (req, res) => {
+  try {
+    // Send response to clear the token
+    res.status(200).json({
+      status: 'success',
+      message: 'Logged out successfully'
+    });
+  } catch (error) {
+    console.error('Logout error:', error);
+    res.status(500).json({
+      status: 'error',
+      message: 'An error occurred during logout'
+    });
+  }
+};
+
+module.exports = { signUp, login, logout };
