@@ -1,6 +1,8 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const path = require('path');
+const fs = require('fs');
 
 const signUp = async (req, res) => {
   const { username, email, password } = req.body;
@@ -127,4 +129,43 @@ const logout = async (req, res) => {
   }
 };
 
-module.exports = { signUp, login, logout };
+// @desc    Upload user avatar
+// @route   POST /api/auth/upload-avatar
+// @access  Private
+const uploadAvatar = async (req, res) => {
+    try {
+        if (!req.file) {
+            return res.status(400).json({
+                success: false,
+                error: 'Please upload a file'
+            });
+        }
+
+        const user = await User.findById(req.user.id);
+        
+        // Delete old avatar if it exists and is not the default
+        if (user.avatar !== 'default-avatar.jpg') {
+            const oldAvatarPath = path.join(__dirname, '../uploads/avatars', user.avatar);
+            if (fs.existsSync(oldAvatarPath)) {
+                fs.unlinkSync(oldAvatarPath);
+            }
+        }
+
+        // Update user avatar
+        user.avatar = req.file.filename;
+        await user.save();
+
+        res.status(200).json({
+            success: true,
+            data: user.avatar
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            error: 'Server Error'
+        });
+    }
+};
+
+module.exports = { signUp, login, logout, uploadAvatar };

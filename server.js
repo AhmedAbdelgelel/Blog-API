@@ -7,6 +7,7 @@ const connectDB = require('./db/connectDB');
 const authRoutes = require('./routes/authRoutes');
 const blogRoutes = require('./routes/blogRoutes');
 const { errorHandler, notFound } = require('./middleware/errorHandler');
+const path = require('path');
 
 dotenv.config();
 
@@ -19,6 +20,9 @@ app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serve static files from uploads directory
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
