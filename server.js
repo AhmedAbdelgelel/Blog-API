@@ -1,41 +1,46 @@
 const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const helmet = require('helmet');
-const morgan = require('morgan');
-const connectDB = require('./db/connectDB');
-const authRoutes = require('./routes/authRoutes');
-const blogRoutes = require('./routes/blogRoutes');
 const { errorHandler, notFound } = require('./middleware/errorHandler');
-const path = require('path');
-
-dotenv.config();
-
-connectDB();
+const authRoutes = require('./routes/authRoutes');
+const caseRoutes = require('./routes/caseRoutes');
+const accidentRoutes = require('./routes/accidentRoutes');
 
 const app = express();
+const PORT = 3000;
 
-app.use(helmet());
-app.use(cors());
-
+// Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-// Serve static files from uploads directory
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// Basic endpoints
+app.get('/api/health', (req, res) => {
+    res.json({ status: 'healthy', time: new Date().toISOString() });
+});
 
-if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'));
-}
+app.get('/api', (req, res) => {
+    res.json({ 
+        message: 'مرحبا بكم في نظام إدارة القضايا والحوادث',
+        version: '1.0.0'
+    });
+});
 
+// Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/blogs', blogRoutes);
+app.use('/api/cases', caseRoutes);
+app.use('/api/accidents', accidentRoutes);
 
+// Error handling
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 3001;
-
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+    console.log(`Server running on http://localhost:${PORT}/api`);
+    console.log(`
+Available endpoints:
+- GET /api - Welcome message and version
+- GET /api/health - System health check
+- POST /api/auth/login - Login with username and password
+- POST /api/auth/logout - Logout (requires authentication)
+- GET /api/cases - Get all cases categorized (requires authentication)
+- GET /api/cases/:id - Get specific case by ID (requires authentication)
+- GET /api/accidents/:id - Get specific accident by ID (requires authentication)
+    `);
 });

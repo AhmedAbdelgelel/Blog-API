@@ -1,0 +1,119 @@
+{
+  "traffic_accidents": {
+    "maritime_accidents": {
+      "alsalam_98": {
+        "id": "MA001",
+        "title": "عبارة السلام 98",
+        "year": 2006,
+        "location": "البحر الأحمر، 57 ميل من سفاجا",
+        "casualties": {
+          "deaths": 1034,
+          "survivors": 388,
+          "total_passengers": 1400
+        },
+        "responsible_party": {
+          "name": "ممدوح إسماعيل",
+          "role": "مالك شركة السلام للنقل البحري"
+        },
+        "cause": {
+          "primary": "إهمال في إجراءات السلامة",
+          "details": "تسرب مياه وحريق في غرفة المحركات"
+        },
+        "case_status": "تم الحكم"
+      }
+    },
+    "train_accidents": {
+      "etay_elbaroud": {
+        "id": "TA001",
+        "title": "حادث قطار إيتاي البارود",
+        "year": 2019,
+        "location": "إيتاي البارود، محافظة البحيرة",
+        "casualties": {
+          "deaths": 10,
+          "injuries": 15
+        },
+        "cause": {
+          "primary": "تصادم مع صهريج مواد قابلة للاشتعال",
+          "details": "وقوف غير قانوني للصهريج على مسار القطار"
+        },
+        "case_status": "تم التحقيق"
+      },
+      "minya_collision": {
+        "id": "TA002",
+        "title": "تصادم قطاريين في المنيا",
+        "year": 2021,
+        "location": "محافظة المنيا",
+        "casualties": {
+          "deaths": 23,
+          "injuries": 50
+        },
+        "cause": {
+          "primary": "خطأ في تحويل مسار القطار",
+          "details": "عدم تنسيق حركة القطارات"
+        },
+        "case_status": "تم التحقيق"
+      }
+    },
+    "road_accidents": {
+      "galala_university": {
+        "id": "RA001",
+        "title": "حادث جامعة الجلالة",
+        "year": 2022,
+        "location": "طريق الجلالة",
+        "type": "حادث طريق",
+        "victims": {
+          "type": "طلاب جامعيين",
+          "count": "متعدد"
+        },
+        "cause": {
+          "primary": "السرعة الزائدة",
+          "details": "فقدان السيطرة على السيارة"
+        },
+        "case_status": "تم التحقيق"
+      },
+      "luxor_planned": {
+        "id": "RA002",
+        "title": "حادث سير مدبر في الأقصر",
+        "year": 2022,
+        "location": "المنطقة السياحية، الأقصر",
+        "casualties": {
+          "deaths": 4,
+          "injuries": 22
+        },
+        "type": "حادث مدبر",
+        "victims": {
+          "type": "سياح أجانب",
+          "nationality": "متعدد"
+        },
+        "cause": {
+          "primary": "حادث متعمد",
+          "details": "محاولة الإضرار بالسياحة"
+        },
+        "case_status": "تم القبض على المتورطين"
+      }
+    }
+  },
+  "categories": {
+    "by_type": {
+      "maritime": "حوادث بحرية",
+      "train": "حوادث قطارات",
+      "road": "حوادث طرق"
+    },
+    "by_year": {
+      "2006": ["alsalam_98"],
+      "2019": ["etay_elbaroud"],
+      "2021": ["minya_collision"],
+      "2022": ["galala_university", "luxor_planned"]
+    },
+    "by_cause": {
+      "negligence": ["alsalam_98", "etay_elbaroud"],
+      "human_error": ["minya_collision"],
+      "speeding": ["galala_university"],
+      "planned": ["luxor_planned"]
+    },
+    "by_status": {
+      "investigated": ["etay_elbaroud", "minya_collision", "galala_university"],
+      "solved": ["alsalam_98", "luxor_planned"]
+    }
+  }
+}

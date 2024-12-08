@@ -1,0 +1,146 @@
+{
+  "rape_cases": {
+    "gang_rape": {
+      "fairmont_case": {
+        "id": "GR001",
+        "title": "قضية فتاة الفيرمونت",
+        "year": 2014,
+        "location": "فندق فيرمونت نايل سيتي، القاهرة",
+        "victim": {
+          "age": "غير معلن",
+          "status": "تم تخديرها"
+        },
+        "perpetrators": {
+          "count": "مجموعة",
+          "description": "شباب من عائلات ثرية",
+          "status": "هاربين"
+        },
+        "method": {
+          "type": "تخدير",
+          "drug": "GHB",
+          "details": "تم تخدير الضحية واغتصابها جماعياً"
+        },
+        "evidence": {
+          "video": true,
+          "medical_report": true,
+          "witnesses": true
+        },
+        "case_status": "قيد التحقيق"
+      }
+    },
+    "child_abuse": {
+      "pampers_case": {
+        "id": "CA001",
+        "title": "قضية طفلة البامبرز",
+        "year": 2017,
+        "location": "قرية دملاش، مركز بلقاس، الدقهلية",
+        "victim": {
+          "age": "20 شهراً",
+          "name": "سما",
+          "status": "متوفية"
+        },
+        "perpetrator": {
+          "name": "إبراهيم محمود",
+          "age": 35,
+          "status": "تم القبض عليه"
+        },
+        "method": {
+          "type": "اختطاف واغتصاب",
+          "details": "تم اختطاف الطفلة من أمام منزلها"
+        },
+        "evidence": {
+          "dna": true,
+          "medical_report": true,
+          "witnesses": true
+        },
+        "case_status": "تم الحكم"
+      }
+    },
+    "public_assault": {
+      "ataba_case": {
+        "id": "PA001",
+        "title": "قضية فتاة العتبة",
+        "year": 2018,
+        "location": "ميدان العتبة، القاهرة",
+        "victim": {
+          "age": 22,
+          "status": "نجت من الحادث"
+        },
+        "perpetrators": {
+          "count": 3,
+          "description": "بائعون متجولون",
+          "status": "تم القبض عليهم"
+        },
+        "method": {
+          "type": "اعتداء جماعي",
+          "details": "تم سحب الضحية إلى شارع جانبي"
+        },
+        "evidence": {
+          "cctv": true,
+          "witnesses": true,
+          "medical_report": true
+        },
+        "case_status": "تم القبض على الجناة"
+      }
+    },
+    "drug_facilitated": {
+      "ghb_case": {
+        "id": "DF001",
+        "title": "قضية مخدر اغتصاب الفتيات",
+        "year": 2023,
+        "location": "القاهرة الكبرى",
+        "victims": {
+          "count": "5+",
+          "age_range": "18-25",
+          "status": "متعدد"
+        },
+        "perpetrators": {
+          "main_suspect": {
+            "name": "وليد محمود",
+            "age": 30,
+            "role": "العقل المدبر"
+          },
+          "accomplices": {
+            "count": 1,
+            "status": "تم القبض عليهم"
+          }
+        },
+        "method": {
+          "type": "تخدير واغتصاب",
+          "drug": "GHB",
+          "details": "استدراج الضحايا وتخديرهن"
+        },
+        "evidence": {
+          "drugs_seized": true,
+          "videos": true,
+          "medical_reports": true
+        },
+        "case_status": "قيد المحاكمة"
+      }
+    }
+  },
+  "categories": {
+    "by_type": {
+      "gang_rape": "اغتصاب جماعي",
+      "child_abuse": "اعتداء على أطفال",
+      "public_assault": "اعتداء في الأماكن العامة",
+      "drug_facilitated": "اغتصاب باستخدام المخدرات"
+    },
+    "by_year": {
+      "2014": ["fairmont_case"],
+      "2017": ["pampers_case"],
+      "2018": ["ataba_case"],
+      "2023": ["ghb_case"]
+    },
+    "by_status": {
+      "ongoing": ["fairmont_case", "ghb_case"],
+      "solved": ["pampers_case", "ataba_case"]
+    },
+    "by_evidence": {
+      "video_evidence": ["fairmont_case", "ghb_case"],
+      "dna_evidence": ["pampers_case"],
+      "cctv": ["ataba_case"],
+      "medical_reports": ["fairmont_case", "pampers_case", "ataba_case", "ghb_case"]
+    }
+  }
+}
