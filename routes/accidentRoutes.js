@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.use(authController.protect);
 
+router.get('/', accidentController.getAllAccidents);
 router.get('/:id', accidentController.getAccidentById);
 
 module.exports = router;
