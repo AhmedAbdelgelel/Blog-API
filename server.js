@@ -41,6 +41,7 @@ Available endpoints:
 - POST /api/auth/logout - Logout (requires authentication)
 - GET /api/cases - Get all cases categorized (requires authentication)
 - GET /api/cases/:id - Get specific case by ID (requires authentication)
+- GET /api/accidents - Get all accidents categorized (requires authentication)
 - GET /api/accidents/:id - Get specific accident by ID (requires authentication)
     `);
 });

@@ -32,6 +32,32 @@ exports.login = asyncHandler(async (req, res, next) => {
     });
 });
 
+exports.signup = asyncHandler(async (req, res, next) => {
+    const { username, password } = req.body;
+    
+    // Check if username and password exist
+    if (!username || !password) {
+        return next(new AppError('الرجاء إدخال اسم المستخدم وكلمة المرور', 400));
+    }
+
+    // Check if user already exists
+    if (users.find(u => u.username === username)) {
+        return next(new AppError('اسم المستخدم موجود بالفعل', 400));
+    }
+
+    // Add new user
+    users.push({ username, password });
+
+    // Auto login after signup
+    const token = Math.random().toString(36).substring(7);
+    activeTokens.add(token);
+    
+    res.status(201).json({ 
+        message: 'تم إنشاء الحساب بنجاح',
+        token 
+    });
+});
+
 exports.logout = asyncHandler(async (req, res) => {
     const token = req.headers['authorization'];
     activeTokens.delete(token);
